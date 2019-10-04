@@ -1,0 +1,16 @@
+.space {
+    flex:1;
+}
+
+.menu-link {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.menu-link:hover {
+    font-weight: bolder;
+}
+
+.menu-link.active {
+    text-decoration: underline;
+}

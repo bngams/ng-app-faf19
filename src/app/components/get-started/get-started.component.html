@@ -1,0 +1,59 @@
+<div>
+    <h1>
+        <!-- interpolation -->
+        Welcome to {{ title }}
+    </h1>
+    <span>{{ object?.title }} by {{ object?.author }}</span>
+
+    <br />
+    <!-- property binding [property] -->
+    <button [disabled]="btnDisabled">My dynamic button</button>
+
+    <br />
+    <!-- event binding (event) -->
+    <button (click)="toggleButton($event)">Toggle disabled</button>
+
+    <br />
+    <!-- pipes: built in pipes date, uppercase, currency, etc... custom Pipes -->
+    <p> My app name is : {{ title | uppercase }}</p>
+    <p> Date is : {{ date | date:"dd/MM/yyyy" }}</p>
+
+    <br />
+    <!-- directives d'attributs ngClass, ngStyle, etc... custom Directives -->
+    <p [ngClass]="{'class1': btnDisabled, 'class2': !btnDisabled}">My class text</p>
+
+    <br />
+    <!-- directives de structures -->
+    <p *ngIf="btnDisabled, else template1">NgIf Text</p>
+    <p [hidden]="true">Hidden property Text</p>
+
+    <!-- directives de structures -->
+    <ul>
+        <ng-container *ngFor="let p of products">
+            <li>{{ p.name }}</li>
+            <li>{{ p.price }}</li>
+            <li>---</li>
+        </ng-container>
+
+    </ul>
+
+    <!-- ngIf template: notation complete-->
+    <ng-template [ngIf]="btnDisabled">
+        <p>NgIf Text</p>
+    </ng-template>
+
+    <!-- #var = template varibale -->
+    <!-- template1 = createNode() -->
+    <ng-template #template1>
+        <p>Else text</p>
+    </ng-template>
+
+
+    <input type="text" name="textfield" #myInput value="test" />
+    {{ myInput.value }}
+    <br />
+    <button #myButton>My text</button>
+    {{ myButton.innerText}}
+
+    <ng-container></ng-container>
+</div>
