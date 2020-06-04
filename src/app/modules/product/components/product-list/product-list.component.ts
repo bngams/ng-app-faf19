@@ -3,6 +3,7 @@ import { Product } from '../../models/product';
 import { PRODUCTS } from '../../mocks/product-data.mock';
 import { ProductService } from '../../services/product.service';
 import { Observable } from 'rxjs';
+import { ProductResourceService } from '../../services/product-resource.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,20 +16,31 @@ export class ProductListComponent implements OnInit {
   products$: Observable<Product[]>;
 
   // DI
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private productResourceService: ProductResourceService
+  ) { }
 
   // Initialization
   ngOnInit() {
-    // via mock
-    // this.products = PRODUCTS;
+    this.loadWithResourcePatternService();
+  }
 
+  loadProductsViaMock() {
+    // via mock
+    this.products = PRODUCTS;
+  }
+
+  loadWithProductServiceAndObvservable() {
     // subscribe
     this.productService.getProducts().subscribe(
       (data) => this.products = data
     );
+  }
 
+  loadWithResourcePatternService() {
     // async
-    this.products$ = this.productService.getProducts();
+    this.products$ = this.productResourceService.list();
   }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+// old syntax index.ts
 import {
   MatButtonModule,
   MatToolbarModule,
@@ -10,24 +11,19 @@ import {
   MatBadgeModule
 } from '@angular/material';
 
+const MATERIAL_MODULES = [
+  MatButtonModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule,
+  MatBadgeModule
+];
+
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatBadgeModule
-  ],
   exports: [
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCardModule,
-    MatBadgeModule
+    ...MATERIAL_MODULES
   ]
 })
 export class MaterialModule { }

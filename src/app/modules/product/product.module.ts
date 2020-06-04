@@ -15,7 +15,6 @@ import { SharedModule } from '../shared/shared.module';
     ProductCardComponent
   ],
   imports: [
-    CommonModule,
     ProductRoutingModule,
     SharedModule
   ]

@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { GetStartedComponent } from './components/get-started/get-started.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,12 @@ import { SharedModule } from './modules/shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    QuicklinkModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
