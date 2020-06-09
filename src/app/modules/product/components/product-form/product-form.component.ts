@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidator } from './custom-validator';
@@ -10,6 +10,9 @@ import { CustomValidator } from './custom-validator';
 })
 export class ProductFormComponent implements OnInit {
   productForm: FormGroup;
+
+  @Output()
+  productSubmit = new EventEmitter<Product>();
 
 
   constructor(private customValidator: CustomValidator) { }
@@ -26,7 +29,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.productForm.value);
+    this.productSubmit.emit(this.productForm.value);
   }
 
 }

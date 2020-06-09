@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of, from, Observable } from 'rxjs';
-import { map, filter, reduce } from 'rxjs/operators';
+import { map, filter, reduce, shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
+import { ProductModule } from '../product.module';
 
 
 @Injectable({
@@ -13,7 +14,8 @@ export class ProductService {
 
   // DI
   // HttpClient => @Injectable => HttpClientModule
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.apiBaseUrl + '/products');
