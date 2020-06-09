@@ -28,6 +28,7 @@ export class ProductListComponent implements OnInit {
 
   // Initialization
   ngOnInit() {
+    this.loadProductsViaMock();
     this.loadWithResourcePatternService();
     // this.loadWithShareReplayAsync();
     this.loadWithShareReplaySubscribe();

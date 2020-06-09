@@ -4,6 +4,7 @@ import { ProductDashboardComponent } from './components/product-dashboard/produc
 
 
 const routes: Routes = [
+    //  /product
     { path: '', component: ProductDashboardComponent }
 ];
 

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'get-started', component: GetStartedComponent },
   // old syntax
-  // { path: 'product', loadChildren: './modules/product/product.module#ProductModule' },
+  // { path: 'product', loadChildren: './modules/product/product.module#ProductModule' }, // NgModuleFactory
   { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
   { path: 'cart', loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule) },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,6 +23,6 @@ const routes: Routes = [
       preloadingStrategy: QuicklinkStrategy
     })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, QuicklinkModule]
 })
 export class AppRoutingModule { }

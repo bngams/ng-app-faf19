@@ -10,6 +10,7 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { ProductModule } from './modules/product/product.module';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,13 @@ import { QuicklinkModule } from 'ngx-quicklink';
     HeaderComponent,
     NotFoundComponent,
     GetStartedComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
-    BrowserModule,
-    QuicklinkModule,
+    BrowserModule, // import Common Module
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [],
   providers: [],

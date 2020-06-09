@@ -7,10 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
-    MaterialModule,
-    HttpClientModule,
     CommonModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ],
 })
 export class SharedModule { }

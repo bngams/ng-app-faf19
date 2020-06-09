@@ -3,6 +3,7 @@
         <!-- interpolation -->
         Welcome to {{ title }}
     </h1>
+    <!-- elvis operator -->
     <span>{{ object?.title }} by {{ object?.author }}</span>
 
     <br />
@@ -20,22 +21,14 @@
 
     <br />
     <!-- directives d'attributs ngClass, ngStyle, etc... custom Directives -->
-    <p [ngClass]="{'class1': btnDisabled, 'class2': !btnDisabled}">My class text</p>
+    <p ngClass="{'class1': btnDisabled, 'class2': !btnDisabled}">My class text</p>
 
     <br />
     <!-- directives de structures -->
-    <p *ngIf="btnDisabled, else template1">NgIf Text</p>
+    <p *ngIf="btnDisabled, else template1">
+        NgIf Text
+    </p>
     <p [hidden]="true">Hidden property Text</p>
-
-    <!-- directives de structures -->
-    <ul>
-        <ng-container *ngFor="let p of products">
-            <li>{{ p.name }}</li>
-            <li>{{ p.price }}</li>
-            <li>---</li>
-        </ng-container>
-
-    </ul>
 
     <!-- ngIf template: notation complete-->
     <ng-template [ngIf]="btnDisabled">
@@ -47,6 +40,23 @@
     <ng-template #template1>
         <p>Else text</p>
     </ng-template>
+
+    <!-- directives de structures -->
+    <ul>
+        <li *ngFor="let p of products; let index" ngClass="{'even': (index % 2 === 0)}">
+            {{ index }}
+            {{ p.name }}
+        </li>
+    </ul>
+
+    <ul>
+        <ng-container *ngFor="let p of products">
+            <li>{{ p.name }}</li>
+            <li>{{ p.price }}</li>
+            <li>---</li>
+        </ng-container>
+    </ul>
+
 
 
     <input type="text" name="textfield" #myInput value="test" />
