@@ -10,7 +10,7 @@ import { ProductListComponent } from '../product-list/product-list.component';
 export class ProductDashboardComponent implements OnInit, AfterViewInit {
 
   // component instance
-  @ViewChild(ProductListComponent, null)
+  @ViewChild(ProductListComponent, { static: false })
   productList: ProductListComponent;
 
   constructor() { }
