@@ -14,8 +14,8 @@ import { retry, catchError, map } from 'rxjs/operators';
 export class HttpSuccessInterceptor implements HttpInterceptor {
     constructor(private injector: Injector) { }
 
-
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        console.log(request);
         return next.handle(request)
             .pipe(
                 map((event: HttpEvent<any>) => {

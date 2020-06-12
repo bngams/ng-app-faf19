@@ -4,7 +4,7 @@ import { catchError, retry } from 'rxjs/operators';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // console.log(req, next);
+        console.log(req, next);
         return next.handle(req)
             .pipe(retry(1), catchError(this.handleError));
     }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../models/product';
 import { PRODUCTS } from '../../mocks/product-data.mock';
 import { ProductService } from '../../services/product.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ProductResourceService } from '../../services/product-resource.service';
 import { shareReplay, filter, map } from 'rxjs/operators';
 
@@ -11,11 +11,11 @@ import { shareReplay, filter, map } from 'rxjs/operators';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   products: Product[] = new Array();
   products$: Observable<Product[]>;
-
+  productSub: Subscription;
   productsShareReplay$: Observable<Product[]>;
   productsExpensiveShareReplay$: Observable<Product[]>;
   productsCheapShareReplay$: Observable<Product[]>;
@@ -28,10 +28,15 @@ export class ProductListComponent implements OnInit {
 
   // Initialization
   ngOnInit() {
-    this.loadProductsViaMock();
-    this.loadWithResourcePatternService();
-    // this.loadWithShareReplayAsync();
-    this.loadWithShareReplaySubscribe();
+    //this.loadProductsViaMock();
+    //this.loadWithResourcePatternService();
+    //this.loadWithShareReplayAsync();
+    //this.loadWithShareReplaySubscribe();
+    //this.productSub = this.loadWithProductServiceAndObvservable();
+  }
+
+  ngOnDestroy() {
+    //this.productSub.unsubscribe();
   }
 
   loadProductsViaMock() {
@@ -39,9 +44,9 @@ export class ProductListComponent implements OnInit {
     this.products = PRODUCTS;
   }
 
-  loadWithProductServiceAndObvservable() {
+  loadWithProductServiceAndObvservable(): Subscription {
     // subscribe
-    this.productService.getProducts().subscribe(
+    return this.productService.getProducts().subscribe(
       (data) => this.products = data
     );
   }

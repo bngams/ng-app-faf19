@@ -36,7 +36,7 @@ export class AuthService {
     async SignIn(email: string, password: string) {
         try {
             const result = await this.afAuth.signInWithEmailAndPassword(email, password);
-            this.cookieService.set('user', JSON.stringify(result.user))
+            this.cookieService.set('user', JSON.stringify(result.user));
             this.ngZone.run(() => {
                 this.router.navigate(['home']);
             });

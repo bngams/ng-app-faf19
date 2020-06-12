@@ -1,15 +1,14 @@
-import { AuthModule } from './../auth/auth.module';
+import { ApiModule } from './../api/api.module';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   exports: [
+    ApiModule,
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
   ],

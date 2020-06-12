@@ -1,3 +1,4 @@
+import { HttpSuccessInterceptor } from './http-success.interceptor';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './http-error.interceptor';
@@ -15,7 +16,12 @@ import { HttpErrorInterceptor } from './http-error.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-    }
+    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: HttpSuccessInterceptor,
+    //   multi: true
+    // }
   ]
 })
 export class ApiModule { }

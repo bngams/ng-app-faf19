@@ -6,13 +6,7 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3004',
   firebase: {
-    apiKey: "AIzaSyB5PzOpKM_lJXi7hfDXCi16n0MuU4ZP3Po",
-    authDomain: "angular-445d3.firebaseapp.com",
-    databaseURL: "https://angular-445d3.firebaseio.com",
-    projectId: "angular-445d3",
-    storageBucket: "angular-445d3.appspot.com",
-    messagingSenderId: "437419818810",
-    appId: "1:437419818810:web:34b03b82f4e723e20e5a03"
+
   }
 };
 
