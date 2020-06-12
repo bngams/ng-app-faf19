@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -7,13 +8,11 @@ import { QuicklinkStrategy, QuicklinkModule } from 'ngx-quicklink';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'get-started', component: GetStartedComponent },
-  // old syntax
-  // { path: 'product', loadChildren: './modules/product/product.module#ProductModule' }, // NgModuleFactory
+  { path: 'get-started', component: GetStartedComponent, canActivate: [AuthGuard] },
   { path: 'product', loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
   { path: 'cart', loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule) },
+  { path: 'login', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // must be at the end
   { path: '**', component: NotFoundComponent }
 ];
 

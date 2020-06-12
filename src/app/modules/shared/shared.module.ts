@@ -1,3 +1,4 @@
+import { AuthModule } from './../auth/auth.module';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';

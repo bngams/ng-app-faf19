@@ -1,5 +1,6 @@
+import { AuthModule } from './modules/auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +26,12 @@ import { ProductModule } from './modules/product/product.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    AuthModule,
   ],
   exports: [],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
